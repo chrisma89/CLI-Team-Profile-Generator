@@ -4,5 +4,10 @@
   },
   "devDependencies": {
     "jest": "^29.7.0"
-  }
+  },
+
+"scripts": {
+  "test": "jest --watchAll"
 }
+}
+
