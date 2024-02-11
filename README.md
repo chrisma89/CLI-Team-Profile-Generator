@@ -13,27 +13,37 @@ This repository has been built using
 
 - Javascript
 - ES6
+- Object Oriented Programming
+- Test Driven Development 
 - Git
 - Github
 - Node.js
 - Inquirer.js
 - fs.js
+- jest
 - CLI
 - font awesome
-- jest
 
 ## Resources:
+- https://www.npmjs.com/package/inquirer
+- https://www.digitalocean.com/community/tutorials/nodejs-interactive-command-line-prompts
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/super
+- https://www.w3schools.com/js/js_classes.asp
 
 
 ### Installation
 
-To get started on creating a README file, Node.js can be installed through visiting https://nodejs.org/en . This will also install the npm (Node Package Manager)
+To get started on creating a team profile, Node.js can be installed through visiting https://nodejs.org/en . This will also install the npm (Node Package Manager)
 The package.json can be initialized through entering npm init command on the CLI.
 To install the inquirer package:  'node i inquirer' command is executed through the command line.
-The upon executing the 'node index.js' command, the prompts for the readme generator should start
-The code can be viewed at github: https://github.com/chrisma89/Command-Line-Readme-Generator
+The upon executing the 'node index.js' command, the prompts for the team profile generator should start
+The code can be viewed at github: https://github.com/chrisma89/CLI-Team-Profile-Generator
+The screenshot of the sample profile cretaed is as below: ![webpagescreenshot](./images/screenshot.png)
 
 ### Usage
+
+This application is useful to create a single page profile information of a team. It is scable for larger companies with a variety of employee roles and designations.
 
 
 ### Credits
