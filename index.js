@@ -58,7 +58,7 @@ function menuOptions() {
   return inquirer
     .prompt([
       {
-        type: "checkbox",
+        type: "list",
         message: "Please choose from the following options",
         choices: [
           "Add an engineer",
@@ -69,7 +69,7 @@ function menuOptions() {
       },
     ])
     .then((data) => {
-      switch (data.action) {
+      switch (data.menu) {
         case "Add an engineer":
           engineerInfo();
           break;
@@ -77,10 +77,9 @@ function menuOptions() {
           internInfo();
           break;
         case "Finish building the team":
-          break;
-          
-      }
-      generateTeam(team);
+          return writeToFile(outputPath, render(team))
+        }
+      
     });
 }
 
@@ -145,7 +144,7 @@ function internInfo () {
   },
 ])
 .then(data => {
-  const intern = new Engineer(data.name,
+  const intern = new Intern (data.name,
     data.id,
     data.email,
     data.school
@@ -155,33 +154,13 @@ function internInfo () {
 })
 };
 
-// function to write README file
-function writeToFile(fileName, managerd) {
-  return writeFileAsync(fileName, generateTeam(managerd));
+// function to write html file
+function writeToFile(fileName, team) {
+  return writeFileAsync(fileName, generateTeam(team));
 }
 
 // function to initialize program
-function init() {
-  inquirer
-    .prompt(questions)
-    .then((data) => {
-      const managerd = new Manager(
-        data.name,
-        data.id,
-        data.email,
-        data.officeNumber
-      );
-      // return managerd
-      // ;})
-      // .prompt(engineerQuestions)
-      // .then((data) =>{
-      //   const engineer = new Engineer(data.name, data.id, data.email, data.github)
-
-      return writeToFile("./output/index.html", managerd);
-    })
-    .then(() => console.log("Successfully wrote to the readme file"))
-    .catch((err) => console.log(err));
-}
+writeToFile()
 
 // function call to initialize program
-init();
+
