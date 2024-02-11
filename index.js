@@ -59,7 +59,7 @@ function menuOptions() {
     .prompt([
       {
         type: "list",
-        message: "Please choose from the following options",
+        message: "Please choose from the following options to build your team profile.",
         choices: [
           "Add an engineer",
           "Add an intern",
@@ -77,6 +77,7 @@ function menuOptions() {
           internInfo();
           break;
         case "Finish building the team":
+          console.log("Your team's profile is now ready to view")
           return writeFileAsync(outputPath, render(team))
         }
       
