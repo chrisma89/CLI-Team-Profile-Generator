@@ -155,12 +155,13 @@ function internInfo () {
 };
 
 // function to write html file
-function writeToFile(fileName, team) {
-  return writeFileAsync(fileName, generateTeam(team));
-}
+// function writeToFile(fileName, team) {
+//   return writeFileAsync(fileName, generateTeam(team));
+// }
 
 // function to initialize program
-writeToFile()
+// writeToFile()
 
 // function call to initialize program
 
+managerInfo()
