@@ -75,7 +75,8 @@ const generateTeam = team => {
         .map(intern => generateIntern(intern))
         .join("")
     );
-
+    
+    // individual cards wrapped in a class of row 
     const htmlCards= html.join("");
     
     return `<div class="row justify-content-center">${htmlCards}</div>`;
