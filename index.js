@@ -5,7 +5,7 @@ const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
 const util = require("util");
-const generateTeam = require("./src/page-template.js");
+
 const writeFileAsync = util.promisify(fs.writeFile);
 
 const OUTPUT_DIR = path.resolve(__dirname, "output");
@@ -77,7 +77,7 @@ function menuOptions() {
           internInfo();
           break;
         case "Finish building the team":
-          return writeToFile(outputPath, render(team))
+          return writeFileAsync(outputPath, render(team))
         }
       
     });
@@ -154,14 +154,5 @@ function internInfo () {
 })
 };
 
-// function to write html file
-// function writeToFile(fileName, team) {
-//   return writeFileAsync(fileName, generateTeam(team));
-// }
-
-// function to initialize program
-// writeToFile()
-
-// function call to initialize program
-
+// function call to start the application
 managerInfo()
