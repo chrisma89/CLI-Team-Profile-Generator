@@ -83,6 +83,7 @@ function menuOptions() {
       generateTeam(team);
     });
 }
+
 // Questions to prompt user for Engineer's details.
 function engineerInfo () {
   return inquirer.prompt([
@@ -114,6 +115,42 @@ function engineerInfo () {
     data.github
   );
   team.push(engineer);
+  menuOptions();
+})
+};
+
+
+// Questions to prompt user for Intern's details.
+function internInfo () {
+  return inquirer.prompt([
+  {
+    type: "input",
+    message: "What is the Interns's name?",
+    name: "name",
+  },
+  {
+    type: "input",
+    message: "Please enter the Intern's employer ID",
+    name: "id",
+  },
+  {
+    type: "input",
+    message: "Please input the Intern's Email Address",
+    name: "email",
+  },
+  {
+    type: "input",
+    message: "Please input the Intern's school",
+    name: "school",
+  },
+])
+.then(data => {
+  const intern = new Engineer(data.name,
+    data.id,
+    data.email,
+    data.school
+  );
+  team.push(intern);
   menuOptions();
 })
 };
