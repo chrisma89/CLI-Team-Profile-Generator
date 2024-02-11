@@ -5,7 +5,7 @@ const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
 const util = require("util");
-const generateTeam = require("./src/page-template.js")
+const generateTeam = require("./src/page-template.js");
 const writeFileAsync = util.promisify(fs.writeFile);
 
 const OUTPUT_DIR = path.resolve(__dirname, "output");
@@ -13,65 +13,79 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./src/page-template.js");
 
-
 // TODO: Write Code to gather information about the development team members, and render the HTML file.
 
-let teamMembers =[];
+let team = [];
 
 // Questions to prompt user for Manager's details.
-function managerInfo (){
-  return inquirer. prompt([
-  {
-    type: "input",
-    message: "What is the Team Manager's name?",
-    name: "name",
-  },
-  {
-    type: "input",
-    message: "Please enter the Manager's employer ID",
-    name: "id",
-  },
-  {
-    type: "input",
-    message: "Please input the Manager's Email Address",
-    name: "email",
-  },
-  {
-    type: "input",
-    message: "Please input the Manager's Office Number",
-    name: "officeNumber",
-  },
-])
-.then(data =>{
-  const manager = new Manager(data.name, data.id, data.email, data.officeNumber)
-  teamMembers.push(manager)
-  menuOptions();
-});
+function managerInfo() {
+  return inquirer
+    .prompt([
+      {
+        type: "input",
+        message: "What is the Team Manager's name?",
+        name: "name",
+      },
+      {
+        type: "input",
+        message: "Please enter the Manager's employer ID",
+        name: "id",
+      },
+      {
+        type: "input",
+        message: "Please input the Manager's Email Address",
+        name: "email",
+      },
+      {
+        type: "input",
+        message: "Please input the Manager's Office Number",
+        name: "officeNumber",
+      },
+    ])
+    .then((data) => {
+      const manager = new Manager(
+        data.name,
+        data.id,
+        data.email,
+        data.officeNumber
+      );
+      team.push(manager);
+      menuOptions();
+    });
 }
 
-function menuOptions (){
-  return inquirer.prompt([
-  {
-    type: "checkbox",
-    message : "Please choose from the following options",
-    choices : ["Add an engineer",
-      "Add an intern",
-      "Finish building the team"],
-      name : "menu"
-}
-])
-.then(data =>{
-
-  switch(data.action){
-    case "Add an engineer":
-      engineerInfo();
-      break;
-  }
-
-})
+function menuOptions() {
+  return inquirer
+    .prompt([
+      {
+        type: "checkbox",
+        message: "Please choose from the following options",
+        choices: [
+          "Add an engineer",
+          "Add an intern",
+          "Finish building the team",
+        ],
+        name: "menu",
+      },
+    ])
+    .then((data) => {
+      switch (data.action) {
+        case "Add an engineer":
+          engineerInfo();
+          break;
+        case "Add an intern":
+          internInfo();
+          break;
+        case "Finish building the team":
+          break;
+          
+      }
+      generateTeam(team);
+    });
 }
 // Questions to prompt user for Engineer's details.
-const engineerQuestions = [
+function engineerInfo () {
+  return inquirer.prompt([
   {
     type: "input",
     message: "What is the Engineer's name?",
@@ -92,10 +106,17 @@ const engineerQuestions = [
     message: "Please input the Engineer's GitHub username",
     name: "github",
   },
-];
-
-
-
+])
+.then(data => {
+  const engineer = new Engineer(data.name,
+    data.id,
+    data.email,
+    data.github
+  );
+  team.push(engineer);
+  menuOptions();
+})
+};
 
 // function to write README file
 function writeToFile(fileName, managerd) {
@@ -107,16 +128,19 @@ function init() {
   inquirer
     .prompt(questions)
     .then((data) => {
-      const managerd = new Manager(data.name, data.id, data.email, data.officeNumber)
+      const managerd = new Manager(
+        data.name,
+        data.id,
+        data.email,
+        data.officeNumber
+      );
       // return managerd
       // ;})
       // .prompt(engineerQuestions)
       // .then((data) =>{
       //   const engineer = new Engineer(data.name, data.id, data.email, data.github)
-      
 
-    
-      return writeToFile("./output/index.html", managerd,);
+      return writeToFile("./output/index.html", managerd);
     })
     .then(() => console.log("Successfully wrote to the readme file"))
     .catch((err) => console.log(err));
