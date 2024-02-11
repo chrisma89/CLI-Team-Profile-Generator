@@ -1,4 +1,18 @@
-.team-heading {
-  color:red;
-  /* mt-4 p-5 bg-primary text-white rounded */
+.team-heading{
+  background-color: rgb(2, 6, 34);  
+  color:rgb(243, 183, 31);
+}
+
+.card-header {
+  color: rgb(2, 6, 34);  
+  background-color:rgb(243, 183, 31);
+}
+
+.card {
+  padding: 5px;
+  margin-bottom: 20px;
+  margin : 10px;
+  border: 5px solid transparent;
+  box-shadow: 2px 2px rgb(243, 183, 31);
+
 }
