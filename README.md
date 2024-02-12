@@ -4,7 +4,7 @@ The Command line Team Profile Generator is an user application that has been cre
 
 The application has been built using node.js and ES6 primarily, and uses npm packages such as inquirer, jest, fs and util. Upon opening the application, the user is prompted to enter the name, id, email and office number of the manager. This has been made possible through the inquirer npm package which delivers the prompts and retrieves user data. This data is then used to create an object called manager, which is an instance of the Employee class that has been pre written and exported using module.exports. This object oriented programming method(OOP) makes the codes reusable and easy to maintain. 
 
-Similar prompts and object creation is in use for collecting the engineer and intern's information. All the classes have been tested using jest test package. The tests were prewritten and the codes have been written to pass the tests.Once all the information is collected, team.html file is created using the page-template.js file. This file hold the format of the html file and the bootstrap links for styling. Custom styling has been added using the style.css file placed within the output folder.
+Similar prompts and object creation is in use for collecting the engineer and intern's information. All the classes have been tested using jest test package. The tests were prewritten and the codes have been written to pass the tests.Once all the information is collected, team.html file is created using the page-template.js file. This file holds the format of the html file and the bootstrap links for styling. Custom styling has been added using the style.css file placed within the output folder.
 
 
 ## Built with
@@ -43,13 +43,13 @@ The screenshot of the sample profile cretaed is as below: ![webpagescreenshot](.
 
 ### Usage
 
-This application is useful to create a single page profile information of a team. It is scable for larger companies with a variety of employee roles and designations.
+This application is useful to create a single page profile information of a team. It is scalable for larger companies with a variety of employee roles and designations.
 
 
 ### Credits
 
-Thanks tot he curriculum team behind BCS for the starter files.
-Thanks to the instructor, Laura Cole, for expalining the project and its requirements.
+Thanks to the curriculum team behind BCS for the starter files.
+Thanks to the instructor, Laura Cole, for explaining the project and its requirements.
 
 ### Licence
 
